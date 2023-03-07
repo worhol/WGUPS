@@ -24,6 +24,7 @@ if __name__ == "__main__":
     # load_package_data(my_table)
     # my_table.print_table()
     # print(my_table.lookup('2'))
+    # print(my_table.lookup('2'))
     # my_table = HashTable()
     # my_table.insert("yes", 56)
     # my_table.print_table()
