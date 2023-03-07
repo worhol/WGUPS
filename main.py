@@ -5,7 +5,7 @@ from LoadPackages import distance_between
 
 if __name__ == "__main__":
 
-    # print(distance_between("International Peace Gardens", "Salt Lake City Division of Health Services"))
+    print(distance_between("International Peace Gardens", "Salt Lake City Division of Health Services"))
 
     # distance_data = []
     # load_distance_data(distance_data)
@@ -14,10 +14,10 @@ if __name__ == "__main__":
     # print(len(distance_data))
     # print(distance_data)
 
-    address_data = []
-    load_address_data(address_data)
-    for i in address_data:
-        print(i)
+    # address_data = []
+    # load_address_data(address_data)
+    # for i in address_data:
+    #     print(i)
     # my_table = HashTable()
     # load_package_data(my_table)
     # my_table.print_table()
