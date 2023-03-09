@@ -9,9 +9,10 @@ def load_package_data(table: HashTable):
             info.append(line.strip())
         for i in info:
             parts = i.split(",")
-            package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], "status")
-            table.insert(package.id, [package.address, package.city, package.state, package.zip, package.delivery_time,
-                                      package.date, package.status])
+            package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], " at the hub", parts[6],
+                              parts[7])
+            table.insert(package.id, [package.address, package.city, package.zip, package.delivery_time,
+                                      package.weight, package.status, package.instructions])
 
 
 def load_distance_data(data: list):
@@ -27,12 +28,11 @@ def load_distance_data(data: list):
 
 def load_address_data(data: list):
     with open("addressCSV.csv", encoding='utf-8-sig') as file:
-        temp=[]
+        temp = []
         for line in file:
             line.rstrip(" ")
             temp.append(line.strip())
 
         for i in temp:
-            parts=i.split(",")
+            parts = i.split(",")
             data.append(parts)
-

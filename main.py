@@ -1,14 +1,19 @@
 from HashTable import HashTable
 from Package import Package
 from LoadingData import load_package_data, load_distance_data, load_address_data
-from LoadPackages import distance_between, min_distance_from
+from LoadPackages import distance_between, min_distance_from, load_packages
 from Truck import Truck
 
 if __name__ == "__main__":
-    # print(distance_between("International Peace Gardens", "Salt Lake City Division of Health Services"))
-    package = Package(5, "410 S State St", "Salt Lake City", "UT", 84111, "EOD", "5", "on truck")
-    truck = Truck("Salt Lake City Streets and Sanitation", package)
-    print(min_distance_from(truck))
+    truck1=Truck("410 S State St")
+    truck2=Truck("410 S State St")
+    truck3=Truck("410 S State St")
+    load_packages(truck1,truck2,truck3)
+    # print(distance_between("1330 2100 S", "2530 S 500 E"))
+    # package = Package(5, "410 S State St", "Salt Lake City", "UT", 84111, "EOD", "5", "on truck")
+    # truck = Truck("3595 Main St", package)
+    # print(min_distance_from(truck))
+
     # distance_data = []
     # load_distance_data(distance_data)
     # for i in distance_data:
