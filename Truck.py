@@ -9,3 +9,7 @@ class Truck:
 
     def add_package(self, package: Package):
         self.packages.append(package)
+
+    def __str__(self):
+        package_info = "\n".join([str(package) for package in self.packages])
+        return f" {package_info}"

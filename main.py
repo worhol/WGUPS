@@ -5,10 +5,14 @@ from LoadPackages import distance_between, min_distance_from, load_packages
 from Truck import Truck
 
 if __name__ == "__main__":
-    truck1=Truck("410 S State St")
-    truck2=Truck("410 S State St")
-    truck3=Truck("410 S State St")
-    load_packages(truck1,truck2,truck3)
+    truck1 = Truck("4001 South 700 East")
+    truck2 = Truck("410 S State St")
+    truck3 = Truck("410 S State St")
+    load_packages(truck1, truck2, truck3)
+    print(len(truck1.packages)+len(truck2.packages)+len(truck3.packages))
+    # print(distance_between("4001 South 700 East", truck1.packages[12].address))
+    # print(truck1.packages[12].address)
+    # min_distance_from(truck1)
     # print(distance_between("1330 2100 S", "2530 S 500 E"))
     # package = Package(5, "410 S State St", "Salt Lake City", "UT", 84111, "EOD", "5", "on truck")
     # truck = Truck("3595 Main St", package)

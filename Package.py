@@ -12,3 +12,6 @@ class Package:
         self.weight = weight
         self.status = status
         self.instructions = instructions
+
+    def __str__(self):
+        return f" {self.id} {self.address} {self.city} {self.state} {self.zip} {self.delivery_time} {self.weight} {self.status} {self.instructions}"
