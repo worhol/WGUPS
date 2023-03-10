@@ -1,18 +1,36 @@
+import Delivery as Delivery
+
 from HashTable import HashTable
 from Package import Package
 from LoadingData import load_package_data, load_distance_data, load_address_data
 from LoadPackages import distance_between, min_distance_from, load_packages
 from Truck import Truck
+from Delivery import truck_delivery
+from datetime import datetime
+from Interface import menu
 
 if __name__ == "__main__":
-    truck1 = Truck("4001 South 700 East")
-    truck2 = Truck("410 S State St")
-    truck3 = Truck("410 S State St")
+    truck1 = Truck()
+    truck2 = Truck()
+    truck3 = Truck()
     load_packages(truck1, truck2, truck3)
-    print(len(truck1.packages)+len(truck2.packages)+len(truck3.packages))
+    packages_table = HashTable()
+    start_time = datetime(2023, 3, 10, 8, 0, 0)
+    start_time3 = datetime(2023, 3, 10, 14, 0, 0)
+    truck_delivery(truck1, packages_table,start_time)
+    truck_delivery(truck2, packages_table, start_time)
+    truck_delivery(truck3, packages_table,start_time3)
+    menu(start_time,packages_table)
+    #
+    # print(packages_table.lookup('18'))
+    # print(packages_table.lookup('13'))
+
+
+    # print(len(truck1.packages)+len(truck2.packages)+len(truck3.packages))
+
     # print(distance_between("4001 South 700 East", truck1.packages[12].address))
     # print(truck1.packages[12].address)
-    # min_distance_from(truck1)
+    # print(min_distance_from(truck3))
     # print(distance_between("1330 2100 S", "2530 S 500 E"))
     # package = Package(5, "410 S State St", "Salt Lake City", "UT", 84111, "EOD", "5", "on truck")
     # truck = Truck("3595 Main St", package)

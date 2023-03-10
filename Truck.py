@@ -2,8 +2,8 @@ from Package import Package
 
 
 class Truck:
-    def __init__(self, current_location: str):
-        self.current_location = current_location
+    def __init__(self):
+        self.current_location = "4001 South 700 East"
         self.packages = []
         self.speed = 18
 
