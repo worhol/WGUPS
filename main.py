@@ -16,14 +16,43 @@ if __name__ == "__main__":
     load_packages(truck1, truck2, truck3)
     packages_table = HashTable()
     start_time = datetime(2023, 3, 10, 8, 0, 0)
-    start_time3 = datetime(2023, 3, 10, 14, 0, 0)
+    start_time3 = datetime(2023, 3, 10, 9, 6, 0)
     truck_delivery(truck1, packages_table,start_time)
+    # print(min_distance_from(truck1))
     truck_delivery(truck2, packages_table, start_time)
     truck_delivery(truck3, packages_table,start_time3)
-    menu(start_time,packages_table)
-    #
-    # print(packages_table.lookup('18'))
+    packages_table.print_table()
+    # print(truck_delivery(truck1, packages_table,start_time)+truck_delivery(truck2, packages_table, start_time)+truck_delivery(truck3, packages_table, start_time3))
+    # menu(start_time,packages_table)
+    # truck4 = Truck()
+    # start_time4=datetime(2023, 3, 12, 9, 0, 0)
+    # truck_delivery(truck4, packages_table, start_time4)
+    # print(packages_table.lookup('1'))
+    # print(packages_table.lookup('6'))
     # print(packages_table.lookup('13'))
+    # print(packages_table.lookup('14'))
+    # print(packages_table.lookup('16'))
+    # print(packages_table.lookup('20'))
+    # print(packages_table.lookup('25'))
+    # print(packages_table.lookup('29'))
+    # print(packages_table.lookup('30'))
+    # print(packages_table.lookup('31'))
+    # print(packages_table.lookup('34'))
+    # print(packages_table.lookup('37'))
+    # print(packages_table.lookup('40'))
+    # print(packages_table.lookup('19'))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     # print(len(truck1.packages)+len(truck2.packages)+len(truck3.packages))

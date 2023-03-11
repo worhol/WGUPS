@@ -32,26 +32,30 @@ def distance_between(address1: str, address2: str):
 
 
 #
+# def min_distance_from(truck: Truck):
+#     package_addresses = []
+#
+#     for package in truck.packages:
+#         package_addresses.append(package.address)
+#         # print(package.address)
+#     addresses_distance = []
+#     for address in package_addresses:
+#         addresses_distance.append(distance_between(truck.current_location, address))
+#     # print(addresses_distance)
+#     # if min(addresses_distance)>0:
+#     return package_addresses[addresses_distance.index(min(addresses_distance))]
 def min_distance_from(truck: Truck):
-    package_addresses = []
+    if not truck.packages:
+        return None
 
+    package_addresses = []
     for package in truck.packages:
         package_addresses.append(package.address)
     addresses_distance = []
     for address in package_addresses:
         addresses_distance.append(distance_between(truck.current_location, address))
-    return package_addresses[addresses_distance.index(min(addresses_distance))]
-# def min_distance_from(truck: Truck):
-#     # if not truck.packages:
-#     #     return None
-#
-#     package_addresses = []
-#     for package in truck.packages:
-#         package_addresses.append(package.address)
-#     addresses_distance = []
-#     for address in package_addresses:
-#         addresses_distance.append(distance_between(truck.current_location, address))
-#     return package_addresses[addresses_distance.index(min(addresses_distance))]
+    if min(addresses_distance)>0:
+        return package_addresses[addresses_distance.index(min(addresses_distance))]
 
 
 def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
@@ -60,7 +64,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
         for line in file:
             parts = line.strip().split(",")
             package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], " at the hub", parts[6],
-                              parts[7])
+                              parts[7],None)
             packages.append(package)
 
     for package in packages:
