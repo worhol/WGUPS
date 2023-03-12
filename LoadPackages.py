@@ -63,7 +63,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
     with open("packageCSV.csv", encoding='utf-8-sig') as file:
         for line in file:
             parts = line.strip().split(",")
-            package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], " at the hub", parts[6],
+            package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "at the hub", parts[6],
                               parts[7],None)
             packages.append(package)
 

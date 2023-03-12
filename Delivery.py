@@ -7,10 +7,21 @@ from HashTable import HashTable
 
 def truck_delivery(truck: Truck, packages_table: HashTable, start_time: datetime):
     load_package_data(packages_table)
-    i = 0
     current_mileage = distance_between(truck.current_location, min_distance_from(truck))
+    # while i < len(truck.packages):
+    # for package in truck.packages:
+    #     package.status="en route"
+    #     package.delivered_at = start_time.strftime("%I:%M:%S %p")
+    for n in range(len(truck.packages)):
+        packages_table.lookup(truck.packages[n].id)[5] = "en route"
+        packages_table.lookup(truck.packages[n].id)[6] = start_time.strftime("%I:%M:%S %p")
+    i=0
     while i < len(truck.packages):
-        truck.packages[i].status = "en route"
+        # truck.packages[i].delivery_status = "en route"
+        # truck.packages[i].delivered_at = start_time.strftime("%I:%M:%S %p")
+        # packages_table.lookup(truck.packages[i].id)[5] = "en route"
+        # packages_table.lookup(truck.packages[i].id)[6] = start_time.strftime("%I:%M:%S %p")
+        # print(packages_table.lookup(truck.packages[i].id)[5],packages_table.lookup(truck.packages[i].id)[6])
         # print(truck.packages[i].status)
         # current_milage = distance_between(truck.current_location, min_distance_from(truck))
         time_hours = current_mileage / truck.speed  # hours
@@ -31,6 +42,8 @@ def truck_delivery(truck: Truck, packages_table: HashTable, start_time: datetime
         # packages_table.data_map[truck.packages[i].id][5]=truck.packages[i].delivery_status
         packages_table.lookup(truck.packages[i].id)[5] = truck.packages[i].delivery_status
         packages_table.lookup(truck.packages[i].id)[6] = truck.packages[i].delivered_at
+        # print(packages_table.lookup(truck.packages[i].id)[5],packages_table.lookup(truck.packages[i].id)[6])
+
         # print("Package", truck.packages[i].id, truck.packages[i].delivery_status)
         truck.packages.pop(i)
 
