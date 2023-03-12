@@ -124,6 +124,8 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
     #         packages.remove(package)
     # packages_to_remove_4=[]
     for pack in truck1.packages:
+        if len(truck1.packages)==16:
+            break
         for package in packages:
             if pack.address == package.address:
                 truck1.add_package(package)
@@ -133,6 +135,8 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
     #     packages.remove(package)
     # packages_to_remove_5=[]
     for pack in truck2.packages:
+        if len(truck2.packages)==16:
+            break
         for package in packages:
             if pack.address == package.address:
                 truck2.add_package(package)
@@ -143,6 +147,8 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
     #
     # packages_to_remove_6=[]
     for pack in truck3.packages:
+        if len(truck3.packages)==16:
+            break
         for package in packages:
             if pack.address == package.address:
                 truck3.add_package(package)
