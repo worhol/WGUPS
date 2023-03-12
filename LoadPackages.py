@@ -58,6 +58,33 @@ def min_distance_from(truck: Truck):
         return package_addresses[addresses_distance.index(min(addresses_distance))]
 
 
+# def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
+#     packages = []
+#     with open("packageCSV.csv", encoding='utf-8-sig') as file:
+#         for line in file:
+#             parts = line.strip().split(",")
+#             package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "at the hub", parts[6],
+#                               parts[7],None)
+#             packages.append(package)
+#
+#     for package in packages:
+#         if package.instructions.startswith("Delayed on flight") or package.instructions == "Wrong address listed":
+#             truck3.add_package(package)
+#         if package.instructions == "Can only be on truck 2":
+#             truck2.add_package(package)
+#         if package.delivery_time != "EOD" and package not in truck3.packages and package not in truck2.packages or package.id == '19':
+#             truck1.add_package(package)
+#
+#     for package in packages:
+#         if len(truck2.packages) == 16:
+#             break
+#         if package not in truck1.packages and package not in truck3.packages and package not in truck2.packages:
+#             truck2.add_package(package)
+#     for package in packages:
+#         if len(truck3.packages) == 16:
+#             break
+#         if package not in truck1.packages and package not in truck3.packages and package not in truck2.packages:
+#             truck3.add_package(package)
 def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
     packages = []
     with open("packageCSV.csv", encoding='utf-8-sig') as file:
@@ -66,22 +93,76 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
             package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "at the hub", parts[6],
                               parts[7],None)
             packages.append(package)
-
+    packages_to_remove_1=[]
     for package in packages:
         if package.instructions.startswith("Delayed on flight") or package.instructions == "Wrong address listed":
             truck3.add_package(package)
+            packages_to_remove_1.append(package)
+            # packages.remove(package)
+    for package in packages_to_remove_1:
+        packages.remove(package)
+    packages_to_remove_2 = []
+    for package in packages:
         if package.instructions == "Can only be on truck 2":
             truck2.add_package(package)
-        if package.delivery_time != "EOD" and package not in truck3.packages and package not in truck2.packages or package.id == '19':
+            packages_to_remove_2.append(package)
+            # packages.remove(package)
+    for package in packages_to_remove_2:
+        packages.remove(package)
+    packages_to_remove_3 = []
+    for package in packages:
+        if package.delivery_time != "EOD" or package.id == '19':
             truck1.add_package(package)
-
-    for package in packages:
-        if len(truck2.packages) == 16:
-            break
-        if package not in truck1.packages and package not in truck3.packages and package not in truck2.packages:
-            truck2.add_package(package)
-    for package in packages:
-        if len(truck3.packages) == 16:
-            break
-        if package not in truck1.packages and package not in truck3.packages and package not in truck2.packages:
-            truck3.add_package(package)
+            packages_to_remove_3.append(package)
+            # packages.remove(package)
+    for package in packages_to_remove_3:
+        packages.remove(package)
+    # print(len(truck1.packages))
+    # for package in packages:
+    #     if package.delivery_time != "EOD":
+    #         truck1.add_package(package)
+    #         packages.remove(package)
+    # packages_to_remove_4=[]
+    for pack in truck1.packages:
+        for package in packages:
+            if pack.address == package.address:
+                truck1.add_package(package)
+                # packages_to_remove_4.append(package)
+                packages.remove(package)
+    # for package in packages_to_remove_4:
+    #     packages.remove(package)
+    # packages_to_remove_5=[]
+    for pack in truck2.packages:
+        for package in packages:
+            if pack.address == package.address:
+                truck2.add_package(package)
+                # packages_to_remove_5.append(package)
+                packages.remove(package)
+    # for package in packages_to_remove_5:
+    #     packages.remove(package)
+    #
+    # packages_to_remove_6=[]
+    for pack in truck3.packages:
+        for package in packages:
+            if pack.address == package.address:
+                truck3.add_package(package)
+                # packages_to_remove_6.append(package)
+                packages.remove(package)
+    # for package in packages_to_remove_6:
+    #     packages.remove(package)
+    #
+    #
+    print(len(truck3.packages))
+    print(len(truck2.packages))
+    print(len(truck1.packages))
+    print(len(packages))
+    # for package in packages:
+    #     if len(truck2.packages) == 16:
+    #         break
+    #     if package not in truck1.packages and package not in truck3.packages and package not in truck2.packages:
+    #         truck2.add_package(package)
+    # for package in packages:
+    #     if len(truck3.packages) == 16:
+    #         break
+    #     if package not in truck1.packages and package not in truck3.packages and package not in truck2.packages:
+    #         truck3.add_package(package)
