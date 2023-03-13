@@ -30,6 +30,7 @@ def distance_between(address1: str, address2: str):
             distance = -1
     return distance
 
+
 def min_distance_from(truck: Truck):
     if not truck.packages:
         return None
@@ -40,7 +41,7 @@ def min_distance_from(truck: Truck):
     addresses_distance = []
     for address in package_addresses:
         addresses_distance.append(distance_between(truck.current_location, address))
-    if min(addresses_distance)>0:
+    if min(addresses_distance) > 0:
         return package_addresses[addresses_distance.index(min(addresses_distance))]
 
 
@@ -50,10 +51,10 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
         for line in file:
             parts = line.strip().split(",")
             package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "at the hub", parts[6],
-                              parts[7],None,0.0, None)
+                              parts[7], None, 0.0, None)
             packages.append(package)
 
-    packages_to_remove_1=[]
+    packages_to_remove_1 = []
     for package in packages:
         if package.instructions.startswith("Delayed on flight") or package.instructions == "Wrong address listed":
             truck3.add_package(package)
@@ -81,7 +82,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
         packages.remove(package)
 
     for pack in truck1.packages:
-        if len(truck1.packages)==16:
+        if len(truck1.packages) == 16:
             break
         for package in packages:
             if pack.address == package.address:
@@ -89,7 +90,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
                 packages.remove(package)
 
     for pack in truck2.packages:
-        if len(truck2.packages)==16:
+        if len(truck2.packages) == 16:
             break
         for package in packages:
             if pack.address == package.address:
@@ -97,7 +98,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
                 packages.remove(package)
 
     for pack in truck3.packages:
-        if len(truck3.packages)==16:
+        if len(truck3.packages) == 16:
             break
         for package in packages:
             if pack.address == package.address:

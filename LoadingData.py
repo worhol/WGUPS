@@ -10,9 +10,10 @@ def load_package_data(table: HashTable):
         for i in info:
             parts = i.split(",")
             package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "at the hub", parts[6],
-                              parts[7],None,0.0, None)
+                              parts[7], None, 0.0, None)
             table.insert(package.id, [package.address, package.city, package.zip, package.delivery_time,
-                                      package.weight, package.status, package.delivered_at, package.mileage, package.start_time])
+                                      package.weight, package.status, package.delivered_at, package.mileage,
+                                      package.start_time])
 
 
 def load_distance_data(data: list):

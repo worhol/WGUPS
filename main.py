@@ -22,7 +22,7 @@ if __name__ == "__main__":
     truck_delivery(truck2, packages_table, start_time)
     truck_delivery(truck3, packages_table,start_time3)
     # packages_table.print_table()
-    menu(packages_table)
+    # menu(packages_table)
     # print(truck_delivery(truck1, packages_table,start_time)+truck_delivery(truck2, packages_table, start_time)+truck_delivery(truck3, packages_table, start_time3))
     # truck4 = Truck()
     # start_time4=datetime(2023, 3, 12, 9, 0, 0)

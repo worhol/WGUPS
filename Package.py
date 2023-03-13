@@ -2,7 +2,8 @@ import datetime
 
 
 class Package:
-    def __init__(self, id: int, address: str, city: str, state: str, zip: int, delivery_time: str,status: str, weight: int, instructions: str, delivered_at: datetime, mileage: float, start_time:datetime):
+    def __init__(self, id: int, address: str, city: str, state: str, zip: int, delivery_time: str, status: str,
+                 weight: int, instructions: str, delivered_at: datetime, mileage: float, start_time: datetime):
         self.id = id
         self.address = address
         self.city = city

@@ -12,10 +12,10 @@ def truck_delivery(truck: Truck, packages_table: HashTable, start_time: datetime
         packages_table.lookup(truck.packages[n].id)[5] = "en route"
         packages_table.lookup(truck.packages[n].id)[6] = start_time.strftime("%I:%M:%S %p")
 
-    delivered_packages=[]
-    i=0
+    delivered_packages = []
+    i = 0
     while i < len(truck.packages):
-        truck.packages[i].start_time=start_time.strftime("%I:%M:%S %p")
+        truck.packages[i].start_time = start_time.strftime("%I:%M:%S %p")
         packages_table.lookup(truck.packages[i].id)[8] = truck.packages[i].start_time
         time_hours = current_mileage / truck.speed  # hours
         time_minutes = int(time_hours * 60) % 60  # minutes
@@ -34,4 +34,4 @@ def truck_delivery(truck: Truck, packages_table: HashTable, start_time: datetime
 
     for n in delivered_packages:
         packages_table.lookup(n)[7] = current_mileage + distance_between(truck.current_location,
-                                                                                                  '4001 South 700 East')
+                                                                         '4001 South 700 East')
