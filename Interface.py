@@ -7,6 +7,9 @@ def menu(table: HashTable):
           "Time\n3."
           "Get All Package Status with a Time\n4. Exit the Program")
     user_input = int(input("Enter your choice:"))
+    if user_input == 1:
+        for i in range(1,len(table.data_map)):
+            print(f"Package ID: {i}, {table.lookup(str(i))}")
     if user_input == 2:
         time_str = input("Enter the time in military time, i.e., 0900: ")
         time_obj = datetime.strptime(time_str, '%H%M')
@@ -25,33 +28,7 @@ def menu(table: HashTable):
                 else:
                     delivery_time_obj = datetime.strptime(delivery_time_str, '%I:%M:%S %p')
                     if delivery_time_obj.time() <= time_obj.time():
-                        # print(f"Package {i}: {package_status}")
                         print(f"\033[32mPackage ID: {i}, Address: {table.lookup(str(i))[0]} {package_status} at {table.lookup(str(i))[6]}\033[0m")
                     else:
                         print(f"\033[33mPackage ID: {i}, Address: {table.lookup(str(i))[0]} en route \033[0m")
-                        # print(f"Package ID:{i}")
 
-    #     time = input("Enter the time in military time, i.e., 0900 :")
-    #     time_obj = datetime.strptime(time, '%H%M')
-    #     formatted_time = time_obj.strftime('%I:%M %p')
-    # for i in range(len(table.data_map)):
-    #     if table.lookup(str(i)) is not None:
-    #         # if table.lookup(str(i))[5] =="at the hub":
-    #         #     print("at hub")
-    #         # if table.lookup(str(i))[6] > formatted_time:
-    #         #     print(table.lookup(str(i))[5])
-    #         #     if table.lookup(str(i))[5]!="delivered":
-    #         #         print("en route")
-    #         # if table.lookup(str(i))[6] is None:
-    #         #     print (table.lookup(str(i)))
-    #         if table.lookup(str(i))[6] is None:
-    #             print (table.lookup(str(i))[5])
-    #         if table.lookup(str(i))[6] is not None:
-    #             if table.lookup(str(i))[6] < formatted_time:
-    #                 print(table.lookup(str(i))[5])
-    #             else:
-    #                 print(table.lookup(str(i))[5])
-
-
-
-        # print(table.lookup(str(i)))
