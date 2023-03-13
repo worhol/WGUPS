@@ -50,7 +50,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
         for line in file:
             parts = line.strip().split(",")
             package = Package(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], "at the hub", parts[6],
-                              parts[7],None)
+                              parts[7],None,0.0, None)
             packages.append(package)
 
     packages_to_remove_1=[]

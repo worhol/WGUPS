@@ -16,7 +16,7 @@ if __name__ == "__main__":
     load_packages(truck1, truck2, truck3)
     packages_table = HashTable()
     start_time = datetime(2023, 3, 10, 8, 0, 0)
-    start_time3 = datetime(2023, 3, 10, 10, 6, 0)
+    start_time3 = datetime(2023, 3, 10, 9, 6, 0)
     truck_delivery(truck1, packages_table,start_time)
     # print(min_distance_from(truck1))
     truck_delivery(truck2, packages_table, start_time)
