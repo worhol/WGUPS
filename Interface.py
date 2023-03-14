@@ -15,8 +15,24 @@ def menu(table: HashTable):
                 f"Package ID: {str(i)}, Address: {table.lookup(str(i))[0]}, {table.lookup(str(i))[1]}, {table.lookup(str(i))[2]}, weight: {table.lookup(str(i))[4]}, delivery deadline: {table.lookup(str(i))[3]} was {table.lookup(str(i))[5]} at {table.lookup(str(i))[6]}.")
         print()
         print(f"TOTAL MILEAGE IS: {sum(set(mileage))}")
-
     if user_input == 2:
+        package_id = str(input("Please enter the package ID: "))
+        time_of_inquiry = input("Enter the time in military time, i.e., 0900: ")
+        time_of_inquiry_obj = datetime.strptime(time_of_inquiry, '%H%M')
+        if table.lookup(package_id) is not None:
+            delivery_start = datetime.strptime(table.lookup(package_id)[8], "%I:%M:%S %p")
+            delivery_end = datetime.strptime(table.lookup(package_id)[6], "%I:%M:%S %p")
+            if delivery_start > time_of_inquiry_obj:
+                print(
+                    f"\033[91mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} is at the hub.\033[0m")
+            if delivery_start < time_of_inquiry_obj:
+                if delivery_end < time_of_inquiry_obj:
+                    print(
+                        f"\033[32mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} was {table.lookup(package_id)[5]} at {table.lookup(package_id)[6]}.\033[0m")
+                else:
+                    print(
+                        f"\033[33mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} is en route.\033[0m")
+    if user_input == 3:
         time_of_inquiry = input("Enter the time in military time, i.e., 0900: ")
         time_of_inquiry_obj = datetime.strptime(time_of_inquiry, '%H%M')
 
@@ -35,23 +51,7 @@ def menu(table: HashTable):
                         print(
                             f"\033[33mPackage ID: {str(i)}, Address: {table.lookup(str(i))[0]}, {table.lookup(str(i))[1]}, {table.lookup(str(i))[2]}, weight: {table.lookup(str(i))[4]}, delivery deadline: {table.lookup(str(i))[3]} is en route.\033[0m")
 
-    if user_input == 3:
-        package_id = str(input("Please enter the package ID: "))
-        time_of_inquiry = input("Enter the time in military time, i.e., 0900: ")
-        time_of_inquiry_obj = datetime.strptime(time_of_inquiry, '%H%M')
-        if table.lookup(package_id) is not None:
-            delivery_start = datetime.strptime(table.lookup(package_id)[8], "%I:%M:%S %p")
-            delivery_end = datetime.strptime(table.lookup(package_id)[6], "%I:%M:%S %p")
-            if delivery_start > time_of_inquiry_obj:
-                print(
-                    f"\033[91mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} is at the hub.\033[0m")
-            if delivery_start < time_of_inquiry_obj:
-                if delivery_end < time_of_inquiry_obj:
-                    print(
-                        f"\033[32mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} was {table.lookup(package_id)[5]} at {table.lookup(package_id)[6]}.\033[0m")
-                else:
-                    print(
-                        f"\033[33mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} is en route.\033[0m")
+
 
     if user_input == 4:
         print("Program Exiting")
