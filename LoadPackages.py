@@ -56,7 +56,8 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
 
     packages_to_remove_1 = []
     for package in packages:
-        if package.instructions.startswith("Delayed on flight") or package.instructions == "Wrong address listed":
+        if (package.instructions.startswith(
+                "Delayed on flight") and package.delivery_time == "EOD") or package.instructions == "Wrong address listed":
             truck3.add_package(package)
             packages_to_remove_1.append(package)
 
@@ -65,7 +66,7 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
 
     packages_to_remove_2 = []
     for package in packages:
-        if package.instructions == "Can only be on truck 2":
+        if package.instructions == "Can only be on truck 2" or package.instructions.startswith("Delayed on flight"):
             truck2.add_package(package)
             packages_to_remove_2.append(package)
 
@@ -121,3 +122,4 @@ def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
         packages_to_remove_5.append(package)
     for package in packages_to_remove_5:
         packages.remove(package)
+

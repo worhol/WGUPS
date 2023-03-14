@@ -15,14 +15,15 @@ if __name__ == "__main__":
     truck3 = Truck()
     load_packages(truck1, truck2, truck3)
     packages_table = HashTable()
-    start_time = datetime(2023, 3, 10, 8, 0, 0)
-    start_time3 = datetime(2023, 3, 10, 9, 6, 0)
-    truck_delivery(truck1, packages_table,start_time)
+    start_time_1 = datetime(2023, 3, 10, 8, 0, 0)
+    start_time_2 = datetime(2023, 3, 10, 9, 6, 0)
+    start_time_3 = datetime(2023, 3, 10, 10, 21, 0)
+    truck_delivery(truck1, packages_table,start_time_1)
     # print(min_distance_from(truck1))
-    truck_delivery(truck2, packages_table, start_time)
-    truck_delivery(truck3, packages_table,start_time3)
+    truck_delivery(truck2, packages_table, start_time_2)
+    truck_delivery(truck3, packages_table,start_time_3)
     # packages_table.print_table()
-    # menu(packages_table)
+    menu(packages_table)
     # print(truck_delivery(truck1, packages_table,start_time)+truck_delivery(truck2, packages_table, start_time)+truck_delivery(truck3, packages_table, start_time3))
     # truck4 = Truck()
     # start_time4=datetime(2023, 3, 12, 9, 0, 0)
@@ -41,6 +42,8 @@ if __name__ == "__main__":
     # print(packages_table.lookup('37'))
     # print(packages_table.lookup('40'))
     # print(packages_table.lookup('19'))
+    # print(packages_table.lookup('9'))
+
 
 
 

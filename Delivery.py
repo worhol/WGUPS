@@ -8,6 +8,8 @@ from HashTable import HashTable
 def truck_delivery(truck: Truck, packages_table: HashTable, start_time: datetime):
     load_package_data(packages_table)
     current_mileage = distance_between(truck.current_location, min_distance_from(truck))
+    packages_table.lookup('9')[0] = "410 S State St"
+    packages_table.lookup('9')[2] = 84111
     for n in range(len(truck.packages)):
         packages_table.lookup(truck.packages[n].id)[5] = "en route"
         packages_table.lookup(truck.packages[n].id)[6] = start_time.strftime("%I:%M:%S %p")
