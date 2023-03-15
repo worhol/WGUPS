@@ -26,7 +26,7 @@ if __name__ == "__main__":
     # menu(packages_table)
     # time1=datetime(2023, 3, 10, 8, 35, 0)
     # time2 = datetime(2023, 3, 10, 9, 25, 0)
-    delivered_between("1203","1312",packages_table)
+    delivered_between("835","925",packages_table)
     # print(truck_delivery(truck1, packages_table,start_time)+truck_delivery(truck2, packages_table, start_time)+truck_delivery(truck3, packages_table, start_time3))
     # truck4 = Truck()
     # start_time4=datetime(2023, 3, 12, 9, 0, 0)
