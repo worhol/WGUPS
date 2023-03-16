@@ -8,7 +8,7 @@ from Truck import Truck
 from HashTable import HashTable
 
 
-# This function takes two addresses as the arguments and returns the distance between them
+# This function takes two addresses as the arguments and returns the distance between them.
 def distance_between(address1: str, address2: str):
     # Creates empty list for addresses
     address_list = []
