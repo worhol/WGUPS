@@ -1,4 +1,5 @@
-import Delivery as Delivery
+# Samir Cokic
+# Student ID: 010093856
 
 from HashTable import HashTable
 from Package import Package
@@ -17,16 +18,16 @@ if __name__ == "__main__":
     packages_table = HashTable()
     start_time_1 = datetime(2023, 3, 10, 8, 0, 0)
     start_time_2 = datetime(2023, 3, 10, 9, 6, 0)
-    start_time_3 = datetime(2023, 3, 10, 10, 21, 0)
+    start_time_3 = datetime(2023, 3, 10, 11, 0, 0)
     truck_delivery(truck1, packages_table,start_time_1)
     # print(min_distance_from(truck1))
     truck_delivery(truck2, packages_table, start_time_2)
     truck_delivery(truck3, packages_table,start_time_3)
     # packages_table.print_table()
-    # menu(packages_table)
+    menu(packages_table)
     # time1=datetime(2023, 3, 10, 8, 35, 0)
     # time2 = datetime(2023, 3, 10, 9, 25, 0)
-    delivered_between("835","925",packages_table)
+    # delivered_between("835","925",packages_table)
     # print(truck_delivery(truck1, packages_table,start_time)+truck_delivery(truck2, packages_table, start_time)+truck_delivery(truck3, packages_table, start_time3))
     # truck4 = Truck()
     # start_time4=datetime(2023, 3, 12, 9, 0, 0)
