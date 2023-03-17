@@ -1,6 +1,6 @@
 import datetime
 
-
+# This class is a blueprint for the package object
 class Package:
     def __init__(self, id: int, address: str, city: str, state: str, zip: int, delivery_time: str, status: str,
                  weight: int, instructions: str, delivered_at: datetime, mileage: float, start_time: datetime):
@@ -17,5 +17,6 @@ class Package:
         self.mileage = mileage
         self.start_time = start_time
 
+    # This is a string method for the class Package
     def __str__(self):
         return f" {self.id} {self.address} {self.city} {self.state} {self.zip} {self.delivery_time} {self.weight} {self.status} {self.instructions} {self.delivered_at} {self.mileage} {self.start_time}"
