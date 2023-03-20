@@ -3,7 +3,8 @@ class HashTable:
     def __init__(self, size=41):
         self.data_map = [None] * size
 
-    # This method takes a key and returns the address where to store the key, value pair
+    # This method takes a key and returns the address where to store the key, value pair.
+    # Time complexity O(n). Space complexity O(n)
     def __hash(self, key):
         # Variable my_hash is initialized to 0
         my_hash = 0
@@ -15,14 +16,16 @@ class HashTable:
             my_hash = (my_hash + ord(i) * 23) % len(self.data_map)
         return my_hash
 
-    # This method prints the HashTable
+    # This method prints the HashTable.
+    # Time complexity O(n). Space complexity O(n)
     def print_table(self):
         # Loops through the data_map
         for i, val in enumerate(self.data_map):
             # Prints key, value pair
             print(i, ":", val)
 
-    # This method takes the key and value as the arguments and inserts the key, value pair into the list
+    # This method takes the key and value as the arguments and inserts the key, value pair into the list.
+    # Time complexity O(1). Space complexity O(n)
     def insert(self, key, value):
         # Create a variable index and assign it a hashed value of the key argument
         index = self.__hash(key)
@@ -33,7 +36,8 @@ class HashTable:
             # Add the key, value pair to the newly created list
         self.data_map[index].append([key, value])
 
-    # This method takes the key value as the argument and returns the value associated with a key
+    # This method takes the key value as the argument and returns the value associated with a key.
+    # Time complexity O(1). Space complexity O(n)
     def lookup(self, key):
         # Create a variable index and assign it a hashed value of the key argument
         index = self.__hash(key)

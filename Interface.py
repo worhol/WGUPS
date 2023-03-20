@@ -53,7 +53,7 @@ def menu(table: HashTable):
             # "at the hub".
             if delivery_start > time_of_inquiry_obj:
                 print(
-                    f"\033[91mPackage ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} is at the hub.\033[0m")
+                    f"Package ID: {package_id}, Address: {table.lookup(package_id)[0]}, {table.lookup(package_id)[1]}, {table.lookup(package_id)[2]}, weight: {table.lookup(package_id)[4]}, delivery deadline: {table.lookup(package_id)[3]} is at the hub.")
             # Checks if the delivery started before or at the time of inquiry
             if delivery_start <= time_of_inquiry_obj:
                 # If the delivery ended before or at the time of the inquiry prints the package's status
@@ -86,7 +86,7 @@ def menu(table: HashTable):
                 # status for that package as "at the hub"
                 if delivery_start > time_of_inquiry_obj:
                     print(
-                        f"\033[91mPackage ID: {str(i)}, Address: {table.lookup(str(i))[0]}, {table.lookup(str(i))[1]}, {table.lookup(str(i))[2]}, weight: {table.lookup(str(i))[4]}, delivery deadline: {table.lookup(str(i))[3]} is at the hub.\033[0m")
+                        f"Package ID: {str(i)}, Address: {table.lookup(str(i))[0]}, {table.lookup(str(i))[1]}, {table.lookup(str(i))[2]}, weight: {table.lookup(str(i))[4]}, delivery deadline: {table.lookup(str(i))[3]} is at the hub.")
                 # Checks if the delivery started before or at the time of inquiry
                 if delivery_start <= time_of_inquiry_obj:
                     # If the delivery ended before or at the time of the inquiry prints the package's status
@@ -132,7 +132,7 @@ def delivered_between(time1: str, time2: str, table: HashTable):
         # status for that package as "at the hub"
         if delivery_start > time_clean1 and delivery_start > time_clean2:
             print(
-                f"\033[91mPackage ID: {str(i)}, Address: {table.lookup(str(i))[0]}, {table.lookup(str(i))[1]}, {table.lookup(str(i))[2]}, weight: {table.lookup(str(i))[4]}, delivery deadline: {table.lookup(str(i))[3]} is at the hub.\033[0m")
+                f"Package ID: {str(i)}, Address: {table.lookup(str(i))[0]}, {table.lookup(str(i))[1]}, {table.lookup(str(i))[2]}, weight: {table.lookup(str(i))[4]}, delivery deadline: {table.lookup(str(i))[3]} is at the hub.")
         # Checks if the delivery started after or at the upper time constraint and delivery ended after the upper
         # time constraint, or delivery started after  or at the lower time constraint and before the upper
         # time constraint then prints the status of the package as "en route"

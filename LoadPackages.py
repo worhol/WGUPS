@@ -9,6 +9,7 @@ from HashTable import HashTable
 
 
 # This function takes two addresses as the arguments and returns the distance between them.
+# Time complexity O(n). Space complexity O(n^2)
 def distance_between(address1: str, address2: str):
     # Creates empty list for addresses
     address_list = []
@@ -44,7 +45,8 @@ def distance_between(address1: str, address2: str):
 
 
 # This function takes the Truck object as the argument then returns the nearest address
-# for the delivery based on the addresses of packages loaded on the truck
+# for the delivery based on the addresses of packages loaded on the truck.
+# Time complexity O(n). Space complexity O(n)
 def min_distance_from(truck: Truck):
     # The function first checks if there are packages on the truck. If the truck is empty it returns None
     if not truck.packages:
@@ -74,6 +76,7 @@ def min_distance_from(truck: Truck):
 
 # This function takes the three Truck objects as the arguments,
 # then assigns the packages to each one based on the specific instructions.
+# Time complexity O(n^2). Space complexity O(n)
 def load_packages(truck1: Truck, truck2: Truck, truck3: Truck):
     # Creates empty list packages
     packages = []

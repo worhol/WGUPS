@@ -3,7 +3,8 @@ from Package import Package
 
 
 # This function takes the HashTable object as the argument, process the csv. file then creates the package object
-# from the content of the file then inserts the package object into a HashTable object
+# from the content of the file then inserts the package object into a HashTable object.
+# Time complexity O(n). Space complexity O(n)
 
 def load_package_data(table: HashTable):
     # Creates empty list info
@@ -28,7 +29,8 @@ def load_package_data(table: HashTable):
                                       package.start_time])
 
 
-# This function takes the list as the argument, process the csv file then adds the processed data to the argument list
+# This function takes the list as the argument, process the csv file then adds the processed data to the argument list.
+# Time complexity O(n*m). Space complexity O(n*m)
 def load_distance_data(data: list):
     # Opens the csv file
     with open("distanceCSV.csv", encoding='utf-8-sig') as file:
@@ -45,7 +47,8 @@ def load_distance_data(data: list):
             # Each row gets added to a list object taken as an argument
             data.append(row)
 
-# This function takes the list as the argument, process the csv file then adds the processed data to the argument list
+# This function takes the list as the argument, process the csv file then adds the processed data to the argument list.
+# Time complexity O(n*m). Space complexity O(n*m)
 def load_address_data(data: list):
     # Opens the csv file
     with open("addressCSV.csv", encoding='utf-8-sig') as file:

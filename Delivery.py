@@ -11,6 +11,7 @@ from HashTable import HashTable
 # Once the package is delivered it writes the delivery time to the HashTable.The function takes the argument
 # start time of the delivery and writes it to the HashTable object. It also calculates the total mileage
 # that truck traveled.
+# Time complexity O(n^2). Space complexity O(n)
 def truck_delivery(truck: Truck, packages_table: HashTable, start_time: datetime):
     # the function load package data loads the csv file into HashTable object that comes as the argument.
     load_package_data(packages_table)
