@@ -72,6 +72,8 @@ def menu(table: HashTable):
         time_of_inquiry = input("Enter the time in military time, i.e., 0900: ")
         # Creates the datetime object with time_of_inquiry
         time_of_inquiry_obj = datetime.strptime(time_of_inquiry, '%H%M')
+        # Prints the headline for status of all packages at given time.
+        print(f"Status of all packages at {datetime.strftime(time_of_inquiry_obj, '%I:%M:%S %p')}")
         # Enters the loop through all packages stored in the HashTable object
         for i in range(len(table.data_map)):
             # Checks if each key is in the table

@@ -34,5 +34,6 @@ if __name__ == "__main__":
     truck_delivery(truck3, packages_table, start_time_3)
     # Calls the user interface function
     menu(packages_table)
+
     # Checks for the statuses in timeframe
     # delivered_between("1203","1312",packages_table)
